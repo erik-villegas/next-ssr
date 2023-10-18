@@ -17,7 +17,7 @@ export default async function Portal() {
       </Suspense>
 
       <Suspense fallback={<p>Loading stars...</p>}>
-        <StarCounter repo={"tailwindlabs/tailwindcss"} delay={4000} />
+        <StarCounter repo={"tailwindlabs/tailwindcss"} delay={5000} />
       </Suspense>
     </main>
   );

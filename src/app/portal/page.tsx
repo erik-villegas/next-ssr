@@ -1,24 +1,20 @@
 import { Suspense } from "react";
-import StarCounter from "../components/StarCount";
-
-function Loading() {
-  return <h1>Server component loading!</h1>;
-}
+import StarCountServer from "../components/StarCountServer";
+import StarCountClient from "../components/StarCountClient";
 
 export default async function Portal() {
   return (
     <main>
-      <Suspense fallback={<p>Loading stars...</p>}>
-        <StarCounter repo={"facebook/react"} delay={2000} />
+      <Suspense fallback={<p>Loading stars on server...</p>}>
+        <StarCountServer repo={"facebook/react"} delay={2000} />
       </Suspense>
 
-      <Suspense fallback={<p>Loading stars...</p>}>
-        <StarCounter repo={"vercel/next.js"} delay={3000} />
+      <Suspense fallback={<p>Loading stars on server...</p>}>
+        <StarCountServer repo={"vercel/next.js"} delay={3000} />
       </Suspense>
 
-      <Suspense fallback={<p>Loading stars...</p>}>
-        <StarCounter repo={"tailwindlabs/tailwindcss"} delay={5000} />
-      </Suspense>
+      <StarCountClient repo={"tailwindlabs/tailwindcss"} delay={4000} />
+      
     </main>
   );
 }

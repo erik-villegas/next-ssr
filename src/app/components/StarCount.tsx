@@ -1,4 +1,4 @@
-export default async function StarCountServer(props: {repo: string, delay: number}) {
+export default async function StarCount(props: {repo: string, delay: number}) {
   await new Promise(r => setTimeout(r, props.delay));
   const res = await fetch(`https://api.github.com/repos/${props.repo}`)
   const repo = await res.json()
